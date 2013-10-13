@@ -16,8 +16,14 @@ VBOXUSER=root
 SU="sudo -H -u $VBOXUSER"
 VBOXMANAGE=/usr/bin/VBoxManage
 VBOXHEADLESS=/usr/bin/VBoxHeadless
+
+# using vmid
 RUNNINGVMS=$($SU $VBOXMANAGE --nologo list runningvms | sed -e 's/^".*".*{\(.*\)}/\1/')
 ALLVMS=$($SU $VBOXMANAGE --nologo list vms | sed -e 's/^".*".*{\(.*\)}/\1/')
+
+# using vm name
+#RUNNINGVMS=$($SU $VBOXMANAGE --nologo list runningvms | grep -oP '"\K[^"\047]+(?=["\047])')
+#ALLVMS=$($SU $VBOXMANAGE --nologo list vms | grep -oP '"\K[^"\047]+(?=["\047])')
 
 case $1 in
 stop)
