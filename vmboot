@@ -11,6 +11,7 @@
 # Short-Description: Stop/Start VMs on System shutdown
 ### END INIT INFO
 
+#change VBOXUSER=root to your own username for virtualbox, if you are using root as user then set the SU to ""
 VBOXUSER=root
 SU="sudo -H -u $VBOXUSER"
 VBOXMANAGE=/usr/bin/VBoxManage
